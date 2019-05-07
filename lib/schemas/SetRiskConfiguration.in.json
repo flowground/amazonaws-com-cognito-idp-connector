@@ -1,0 +1,325 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "AccountTakeoverRiskConfiguration": {
+                    "description": "The account takeover risk configuration.",
+                    "properties": {
+                        "Actions": {
+                            "description": "Account takeover risk configuration actions",
+                            "properties": {
+                                "HighAction": {
+                                    "description": "Action to take for a high risk.",
+                                    "properties": {
+                                        "EventAction": {
+                                            "description": "<p>The event action.</p> <ul> <li> <p> <code>BLOCK</code> Choosing this action will block the request.</p> </li> <li> <p> <code>MFA_IF_CONFIGURED</code> Throw MFA challenge if user has configured it, else allow the request.</p> </li> <li> <p> <code>MFA_REQUIRED</code> Throw MFA challenge if user has configured it, else block the request.</p> </li> <li> <p> <code>NO_ACTION</code> Allow the user sign-in.</p> </li> </ul>",
+                                            "enum": [
+                                                "BLOCK",
+                                                "MFA_IF_CONFIGURED",
+                                                "MFA_REQUIRED",
+                                                "NO_ACTION"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "Notify": {
+                                            "description": "Flag specifying whether to send a notification.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "required": [
+                                        "Notify",
+                                        "EventAction"
+                                    ],
+                                    "type": "object"
+                                },
+                                "LowAction": {
+                                    "description": "Action to take for a low risk.",
+                                    "properties": {
+                                        "EventAction": {
+                                            "description": "<p>The event action.</p> <ul> <li> <p> <code>BLOCK</code> Choosing this action will block the request.</p> </li> <li> <p> <code>MFA_IF_CONFIGURED</code> Throw MFA challenge if user has configured it, else allow the request.</p> </li> <li> <p> <code>MFA_REQUIRED</code> Throw MFA challenge if user has configured it, else block the request.</p> </li> <li> <p> <code>NO_ACTION</code> Allow the user sign-in.</p> </li> </ul>",
+                                            "enum": [
+                                                "BLOCK",
+                                                "MFA_IF_CONFIGURED",
+                                                "MFA_REQUIRED",
+                                                "NO_ACTION"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "Notify": {
+                                            "description": "Flag specifying whether to send a notification.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "required": [
+                                        "Notify",
+                                        "EventAction"
+                                    ],
+                                    "type": "object"
+                                },
+                                "MediumAction": {
+                                    "description": "Action to take for a medium risk.",
+                                    "properties": {
+                                        "EventAction": {
+                                            "description": "<p>The event action.</p> <ul> <li> <p> <code>BLOCK</code> Choosing this action will block the request.</p> </li> <li> <p> <code>MFA_IF_CONFIGURED</code> Throw MFA challenge if user has configured it, else allow the request.</p> </li> <li> <p> <code>MFA_REQUIRED</code> Throw MFA challenge if user has configured it, else block the request.</p> </li> <li> <p> <code>NO_ACTION</code> Allow the user sign-in.</p> </li> </ul>",
+                                            "enum": [
+                                                "BLOCK",
+                                                "MFA_IF_CONFIGURED",
+                                                "MFA_REQUIRED",
+                                                "NO_ACTION"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "Notify": {
+                                            "description": "Flag specifying whether to send a notification.",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "required": [
+                                        "Notify",
+                                        "EventAction"
+                                    ],
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "NotifyConfiguration": {
+                            "description": "The notify configuration used to construct email notifications.",
+                            "properties": {
+                                "BlockEmail": {
+                                    "description": "Email template used when a detected risk event is blocked.",
+                                    "properties": {
+                                        "HtmlBody": {
+                                            "description": "The HTML body.",
+                                            "maxLength": 20000,
+                                            "minLength": 6,
+                                            "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]+",
+                                            "type": "string"
+                                        },
+                                        "Subject": {
+                                            "description": "The subject.",
+                                            "maxLength": 140,
+                                            "minLength": 1,
+                                            "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
+                                            "type": "string"
+                                        },
+                                        "TextBody": {
+                                            "description": "The text body.",
+                                            "maxLength": 20000,
+                                            "minLength": 6,
+                                            "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]+",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "Subject"
+                                    ],
+                                    "type": "object"
+                                },
+                                "From": {
+                                    "description": "The email address that is sending the email. It must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.",
+                                    "type": "string"
+                                },
+                                "MfaEmail": {
+                                    "description": "The MFA email template used when MFA is challenged as part of a detected risk.",
+                                    "properties": {
+                                        "HtmlBody": {
+                                            "description": "The HTML body.",
+                                            "maxLength": 20000,
+                                            "minLength": 6,
+                                            "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]+",
+                                            "type": "string"
+                                        },
+                                        "Subject": {
+                                            "description": "The subject.",
+                                            "maxLength": 140,
+                                            "minLength": 1,
+                                            "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
+                                            "type": "string"
+                                        },
+                                        "TextBody": {
+                                            "description": "The text body.",
+                                            "maxLength": 20000,
+                                            "minLength": 6,
+                                            "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]+",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "Subject"
+                                    ],
+                                    "type": "object"
+                                },
+                                "NoActionEmail": {
+                                    "description": "The email template used when a detected risk event is allowed.",
+                                    "properties": {
+                                        "HtmlBody": {
+                                            "description": "The HTML body.",
+                                            "maxLength": 20000,
+                                            "minLength": 6,
+                                            "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]+",
+                                            "type": "string"
+                                        },
+                                        "Subject": {
+                                            "description": "The subject.",
+                                            "maxLength": 140,
+                                            "minLength": 1,
+                                            "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
+                                            "type": "string"
+                                        },
+                                        "TextBody": {
+                                            "description": "The text body.",
+                                            "maxLength": 20000,
+                                            "minLength": 6,
+                                            "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]+",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "Subject"
+                                    ],
+                                    "type": "object"
+                                },
+                                "ReplyTo": {
+                                    "description": "The destination to which the receiver of an email should reply to.",
+                                    "type": "string"
+                                },
+                                "SourceArn": {
+                                    "description": "The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. It permits Amazon Cognito to send for the email address specified in the <code>From</code> parameter.",
+                                    "maxLength": 2048,
+                                    "minLength": 20,
+                                    "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "SourceArn"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "Actions"
+                    ],
+                    "type": "object"
+                },
+                "ClientId": {
+                    "description": "<p>The app client ID. If <code>ClientId</code> is null, then the risk configuration is mapped to <code>userPoolId</code>. When the client ID is null, the same risk configuration is applied to all the clients in the userPool.</p> <p>Otherwise, <code>ClientId</code> is mapped to the client. When the client ID is not null, the user pool configuration is overridden and the risk configuration for the client is used instead.</p>",
+                    "format": "password",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern": "[\\w+]+",
+                    "type": "string"
+                },
+                "CompromisedCredentialsRiskConfiguration": {
+                    "description": "The compromised credentials risk configuration.",
+                    "properties": {
+                        "Actions": {
+                            "description": "The compromised credentials risk configuration actions.",
+                            "properties": {
+                                "EventAction": {
+                                    "description": "The event action.",
+                                    "enum": [
+                                        "BLOCK",
+                                        "NO_ACTION"
+                                    ],
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "EventAction"
+                            ],
+                            "type": "object"
+                        },
+                        "EventFilter": {
+                            "description": "Perform the action for these events. The default is to perform all events if no event filter is specified.",
+                            "items": {
+                                "enum": [
+                                    "SIGN_IN",
+                                    "PASSWORD_CHANGE",
+                                    "SIGN_UP"
+                                ],
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "Actions"
+                    ],
+                    "type": "object"
+                },
+                "RiskExceptionConfiguration": {
+                    "description": "The configuration to override the risk decision.",
+                    "properties": {
+                        "BlockedIPRangeList": {
+                            "description": "Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "maxItems": 20,
+                            "type": "array"
+                        },
+                        "SkippedIPRangeList": {
+                            "description": "Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "maxItems": 20,
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "UserPoolId": {
+                    "description": "The user pool ID. ",
+                    "maxLength": 55,
+                    "minLength": 1,
+                    "pattern": "[\\w-]+_[0-9a-zA-Z]+",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "UserPoolId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,81 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Description": {
+                    "description": "A string containing the new description of the group.",
+                    "maxLength": 2048,
+                    "type": "string"
+                },
+                "GroupName": {
+                    "description": "The name of the group.",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+                    "type": "string"
+                },
+                "Precedence": {
+                    "description": "The new precedence value for the group. For more information about this parameter, see .",
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "RoleArn": {
+                    "description": "The new role ARN for the group. This is used for setting the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in the token.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                    "type": "string"
+                },
+                "UserPoolId": {
+                    "description": "The user pool ID for the user pool.",
+                    "maxLength": 55,
+                    "minLength": 1,
+                    "pattern": "[\\w-]+_[0-9a-zA-Z]+",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "GroupName",
+                "UserPoolId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,108 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "MfaConfiguration": {
+                    "description": "The MFA configuration.",
+                    "enum": [
+                        "OFF",
+                        "ON",
+                        "OPTIONAL"
+                    ],
+                    "type": "string"
+                },
+                "SmsMfaConfiguration": {
+                    "description": "The SMS text message MFA configuration.",
+                    "properties": {
+                        "SmsAuthenticationMessage": {
+                            "description": "The SMS authentication message.",
+                            "maxLength": 140,
+                            "minLength": 6,
+                            "pattern": ".*\\{####\\}.*",
+                            "type": "string"
+                        },
+                        "SmsConfiguration": {
+                            "description": "The SMS configuration.",
+                            "properties": {
+                                "ExternalId": {
+                                    "description": "The external ID.",
+                                    "type": "string"
+                                },
+                                "SnsCallerArn": {
+                                    "description": "The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller.",
+                                    "maxLength": 2048,
+                                    "minLength": 20,
+                                    "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "SnsCallerArn"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                },
+                "SoftwareTokenMfaConfiguration": {
+                    "description": "The software token MFA configuration.",
+                    "properties": {
+                        "Enabled": {
+                            "description": "Specifies whether software token MFA is enabled.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "UserPoolId": {
+                    "description": "The user pool ID.",
+                    "maxLength": 55,
+                    "minLength": 1,
+                    "pattern": "[\\w-]+_[0-9a-zA-Z]+",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "UserPoolId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

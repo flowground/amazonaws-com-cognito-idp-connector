@@ -1,0 +1,81 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Description": {
+                    "description": "A string containing the description of the group.",
+                    "maxLength": 2048,
+                    "type": "string"
+                },
+                "GroupName": {
+                    "description": "The name of the group. Must be unique.",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+                    "type": "string"
+                },
+                "Precedence": {
+                    "description": "<p>A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower <code>Precedence</code> values take precedence over groups with higher or null <code>Precedence</code> values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in the user's tokens.</p> <p>Two groups can have the same <code>Precedence</code> value. If this happens, neither group takes precedence over the other. If two groups with the same <code>Precedence</code> have the same role ARN, that role is used in the <code>cognito:preferred_role</code> claim in tokens for users in each group. If the two groups have different role ARNs, the <code>cognito:preferred_role</code> claim is not set in users' tokens.</p> <p>The default <code>Precedence</code> value is null.</p>",
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "RoleArn": {
+                    "description": "The role ARN for the group.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                    "type": "string"
+                },
+                "UserPoolId": {
+                    "description": "The user pool ID for the user pool.",
+                    "maxLength": 55,
+                    "minLength": 1,
+                    "pattern": "[\\w-]+_[0-9a-zA-Z]+",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "GroupName",
+                "UserPoolId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

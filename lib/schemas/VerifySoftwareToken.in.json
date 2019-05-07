@@ -1,0 +1,72 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "AccessToken": {
+                    "description": "The access token.",
+                    "format": "password",
+                    "pattern": "[A-Za-z0-9-_=.]+",
+                    "type": "string"
+                },
+                "FriendlyDeviceName": {
+                    "description": "The friendly device name.",
+                    "type": "string"
+                },
+                "Session": {
+                    "description": "The session which should be passed both ways in challenge-response calls to the service.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "type": "string"
+                },
+                "UserCode": {
+                    "description": "The one time password computed using the secret code returned by ",
+                    "maxLength": 6,
+                    "minLength": 6,
+                    "pattern": "[0-9]+",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "UserCode"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

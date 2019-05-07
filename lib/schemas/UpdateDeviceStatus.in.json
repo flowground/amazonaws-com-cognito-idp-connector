@@ -1,0 +1,72 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Represents the request to update the device status.",
+            "properties": {
+                "AccessToken": {
+                    "description": "The access token.",
+                    "format": "password",
+                    "pattern": "[A-Za-z0-9-_=.]+",
+                    "type": "string"
+                },
+                "DeviceKey": {
+                    "description": "The device key.",
+                    "maxLength": 55,
+                    "minLength": 1,
+                    "pattern": "[\\w-]+_[0-9a-f-]+",
+                    "type": "string"
+                },
+                "DeviceRememberedStatus": {
+                    "description": "The status of whether a device is remembered.",
+                    "enum": [
+                        "remembered",
+                        "not_remembered"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "AccessToken",
+                "DeviceKey"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

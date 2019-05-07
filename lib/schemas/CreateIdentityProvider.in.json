@@ -1,0 +1,121 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "AttributeMapping": {
+                    "description": "A mapping of identity provider attributes to standard and custom user pool attributes.",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "maxLength": 32,
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "IdpIdentifiers": {
+                    "description": "A list of identity provider identifiers.",
+                    "items": {
+                        "maxLength": 40,
+                        "minLength": 1,
+                        "pattern": "[\\w\\s+=.@-]+",
+                        "type": "string"
+                    },
+                    "maxItems": 50,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "ProviderDetails": {
+                    "description": "The identity provider details, such as <code>MetadataURL</code> and <code>MetadataFile</code>.",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "ProviderName": {
+                    "description": "The identity provider name.",
+                    "maxLength": 32,
+                    "minLength": 1,
+                    "pattern": "[^_][\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}][^_]+",
+                    "type": "string"
+                },
+                "ProviderType": {
+                    "description": "The identity provider type.",
+                    "enum": [
+                        "SAML",
+                        "Facebook",
+                        "Google",
+                        "LoginWithAmazon",
+                        "OIDC"
+                    ],
+                    "type": "string"
+                },
+                "UserPoolId": {
+                    "description": "The user pool ID.",
+                    "maxLength": 55,
+                    "minLength": 1,
+                    "pattern": "[\\w-]+_[0-9a-zA-Z]+",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "UserPoolId",
+                "ProviderName",
+                "ProviderType",
+                "ProviderDetails"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

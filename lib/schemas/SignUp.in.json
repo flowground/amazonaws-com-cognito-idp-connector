@@ -1,0 +1,156 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Represents the request to register a user.",
+            "properties": {
+                "AnalyticsMetadata": {
+                    "description": "The Amazon Pinpoint analytics metadata for collecting metrics for <code>SignUp</code> calls.",
+                    "properties": {
+                        "AnalyticsEndpointId": {
+                            "description": "The endpoint ID.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "ClientId": {
+                    "description": "The ID of the client associated with the user pool.",
+                    "format": "password",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern": "[\\w+]+",
+                    "type": "string"
+                },
+                "Password": {
+                    "description": "The password of the user you wish to register.",
+                    "format": "password",
+                    "maxLength": 256,
+                    "minLength": 6,
+                    "pattern": "[\\S]+",
+                    "type": "string"
+                },
+                "SecretHash": {
+                    "description": "A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.",
+                    "format": "password",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern": "[\\w+=/]+",
+                    "type": "string"
+                },
+                "UserAttributes": {
+                    "description": "<p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>",
+                    "items": {
+                        "description": "Specifies whether the attribute is standard or custom.",
+                        "properties": {
+                            "Name": {
+                                "description": "The name of the attribute.",
+                                "maxLength": 32,
+                                "minLength": 1,
+                                "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+                                "type": "string"
+                            },
+                            "Value": {
+                                "description": "The value of the attribute.",
+                                "format": "password",
+                                "maxLength": 2048,
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "Name"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "UserContextData": {
+                    "description": "Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.",
+                    "properties": {
+                        "EncodedData": {
+                            "description": "Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Username": {
+                    "description": "The user name of the user you wish to register.",
+                    "format": "password",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+                    "type": "string"
+                },
+                "ValidationData": {
+                    "description": "The validation data in the request to register a user.",
+                    "items": {
+                        "description": "Specifies whether the attribute is standard or custom.",
+                        "properties": {
+                            "Name": {
+                                "description": "The name of the attribute.",
+                                "maxLength": 32,
+                                "minLength": 1,
+                                "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+                                "type": "string"
+                            },
+                            "Value": {
+                                "description": "The value of the attribute.",
+                                "format": "password",
+                                "maxLength": 2048,
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "Name"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "ClientId",
+                "Username",
+                "Password"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

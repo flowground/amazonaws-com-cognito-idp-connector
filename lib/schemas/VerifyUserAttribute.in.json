@@ -1,0 +1,72 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Represents the request to verify user attributes.",
+            "properties": {
+                "AccessToken": {
+                    "description": "Represents the access token of the request to verify user attributes.",
+                    "format": "password",
+                    "pattern": "[A-Za-z0-9-_=.]+",
+                    "type": "string"
+                },
+                "AttributeName": {
+                    "description": "The attribute name in the request to verify user attributes.",
+                    "maxLength": 32,
+                    "minLength": 1,
+                    "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+                    "type": "string"
+                },
+                "Code": {
+                    "description": "The verification code in the request to verify user attributes.",
+                    "maxLength": 2048,
+                    "minLength": 1,
+                    "pattern": "[\\S]+",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "AccessToken",
+                "AttributeName",
+                "Code"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,206 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Represents the request to create a user pool client.",
+            "properties": {
+                "AllowedOAuthFlows": {
+                    "description": "<p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p> <p>Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p>",
+                    "items": {
+                        "enum": [
+                            "code",
+                            "implicit",
+                            "client_credentials"
+                        ],
+                        "type": "string"
+                    },
+                    "maxItems": 3,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "AllowedOAuthFlowsUserPoolClient": {
+                    "description": "Set to <code>True</code> if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.",
+                    "type": "boolean"
+                },
+                "AllowedOAuthScopes": {
+                    "description": "A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>\"phone\"</code>, <code>\"email\"</code>, <code>\"openid\"</code>, and <code>\"Cognito\"</code>.",
+                    "items": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "pattern": "[\\x21\\x23-\\x5B\\x5D-\\x7E]+",
+                        "type": "string"
+                    },
+                    "maxItems": 25,
+                    "type": "array"
+                },
+                "AnalyticsConfiguration": {
+                    "description": "The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.",
+                    "properties": {
+                        "ApplicationId": {
+                            "description": "The application ID for an Amazon Pinpoint application.",
+                            "pattern": "^[0-9a-fA-F]+$",
+                            "type": "string"
+                        },
+                        "ExternalId": {
+                            "description": "The external ID.",
+                            "type": "string"
+                        },
+                        "RoleArn": {
+                            "description": "The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.",
+                            "maxLength": 2048,
+                            "minLength": 20,
+                            "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                            "type": "string"
+                        },
+                        "UserDataShared": {
+                            "description": "If <code>UserDataShared</code> is <code>true</code>, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.",
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "ApplicationId",
+                        "RoleArn",
+                        "ExternalId"
+                    ],
+                    "type": "object"
+                },
+                "CallbackURLs": {
+                    "description": "<p>A list of allowed redirect (callback) URLs for the identity providers.</p> <p>A redirect URI must:</p> <ul> <li> <p>Be an absolute URI.</p> </li> <li> <p>Be registered with the authorization server.</p> </li> <li> <p>Not include a fragment component.</p> </li> </ul> <p>See <a href=\"https://tools.ietf.org/html/rfc6749#section-3.1.2\">OAuth 2.0 - Redirection Endpoint</a>.</p> <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p> <p>App callback URLs such as myapp://example are also supported.</p>",
+                    "items": {
+                        "maxLength": 1024,
+                        "minLength": 1,
+                        "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+                        "type": "string"
+                    },
+                    "maxItems": 100,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "ClientName": {
+                    "description": "The client name for the user pool client you would like to create.",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern": "[\\w\\s+=,.@-]+",
+                    "type": "string"
+                },
+                "DefaultRedirectURI": {
+                    "description": "<p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p> <p>A redirect URI must:</p> <ul> <li> <p>Be an absolute URI.</p> </li> <li> <p>Be registered with the authorization server.</p> </li> <li> <p>Not include a fragment component.</p> </li> </ul> <p>See <a href=\"https://tools.ietf.org/html/rfc6749#section-3.1.2\">OAuth 2.0 - Redirection Endpoint</a>.</p> <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p> <p>App callback URLs such as myapp://example are also supported.</p>",
+                    "maxLength": 1024,
+                    "minLength": 1,
+                    "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+                    "type": "string"
+                },
+                "ExplicitAuthFlows": {
+                    "description": "The explicit authentication flows.",
+                    "items": {
+                        "enum": [
+                            "ADMIN_NO_SRP_AUTH",
+                            "CUSTOM_AUTH_FLOW_ONLY",
+                            "USER_PASSWORD_AUTH"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "GenerateSecret": {
+                    "description": "Boolean to specify whether you want to generate a secret for the user pool client being created.",
+                    "type": "boolean"
+                },
+                "LogoutURLs": {
+                    "description": "A list of allowed logout URLs for the identity providers.",
+                    "items": {
+                        "maxLength": 1024,
+                        "minLength": 1,
+                        "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+                        "type": "string"
+                    },
+                    "maxItems": 100,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "ReadAttributes": {
+                    "description": "The read attributes.",
+                    "items": {
+                        "maxLength": 2048,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "RefreshTokenValidity": {
+                    "description": "The time limit, in days, after which the refresh token is no longer valid and cannot be used.",
+                    "maximum": 3650,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "SupportedIdentityProviders": {
+                    "description": "A list of provider names for the identity providers that are supported on this client.",
+                    "items": {
+                        "maxLength": 32,
+                        "minLength": 1,
+                        "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "UserPoolId": {
+                    "description": "The user pool ID for the user pool where you want to create a user pool client.",
+                    "maxLength": 55,
+                    "minLength": 1,
+                    "pattern": "[\\w-]+_[0-9a-zA-Z]+",
+                    "type": "string"
+                },
+                "WriteAttributes": {
+                    "description": "<p>The user pool attributes that the app client can write to.</p> <p>If your app client allows users to sign in through an identity provider, this array must include all attributes that are mapped to identity provider attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If your app client lacks write access to a mapped attribute, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html\">Specifying Identity Provider Attribute Mappings for Your User Pool</a>.</p>",
+                    "items": {
+                        "maxLength": 2048,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "UserPoolId",
+                "ClientName"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,75 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "User": {
+                    "description": "The user to be disabled.",
+                    "properties": {
+                        "ProviderAttributeName": {
+                            "description": "The name of the provider attribute to link to, for example, <code>NameID</code>.",
+                            "type": "string"
+                        },
+                        "ProviderAttributeValue": {
+                            "description": "The value of the provider attribute to link to, for example, <code>xxxxx_account</code>.",
+                            "type": "string"
+                        },
+                        "ProviderName": {
+                            "description": "The name of the provider, for example, Facebook, Google, or Login with Amazon.",
+                            "maxLength": 32,
+                            "minLength": 1,
+                            "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "UserPoolId": {
+                    "description": "The user pool ID for the user pool.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "UserPoolId",
+                "User"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,73 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Represents the request to create the user import job.",
+            "properties": {
+                "CloudWatchLogsRoleArn": {
+                    "description": "The role ARN for the Amazon CloudWatch Logging role for the user import job.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                    "type": "string"
+                },
+                "JobName": {
+                    "description": "The job name for the user import job.",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern": "[\\w\\s+=,.@-]+",
+                    "type": "string"
+                },
+                "UserPoolId": {
+                    "description": "The user pool ID for the user pool that the users are being imported into.",
+                    "maxLength": 55,
+                    "minLength": 1,
+                    "pattern": "[\\w-]+_[0-9a-zA-Z]+",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "JobName",
+                "UserPoolId",
+                "CloudWatchLogsRoleArn"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

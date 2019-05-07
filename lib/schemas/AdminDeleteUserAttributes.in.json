@@ -1,0 +1,77 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Represents the request to delete user attributes as an administrator.",
+            "properties": {
+                "UserAttributeNames": {
+                    "description": "<p>An array of strings representing the user attribute names you wish to delete.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>",
+                    "items": {
+                        "maxLength": 32,
+                        "minLength": 1,
+                        "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "UserPoolId": {
+                    "description": "The user pool ID for the user pool where you want to delete user attributes.",
+                    "maxLength": 55,
+                    "minLength": 1,
+                    "pattern": "[\\w-]+_[0-9a-zA-Z]+",
+                    "type": "string"
+                },
+                "Username": {
+                    "description": "The user name of the user from which you would like to delete attributes.",
+                    "format": "password",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "UserPoolId",
+                "Username",
+                "UserAttributeNames"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

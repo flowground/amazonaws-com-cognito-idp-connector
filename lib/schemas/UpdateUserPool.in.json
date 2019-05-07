@@ -1,0 +1,392 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Represents the request to update the user pool.",
+            "properties": {
+                "AdminCreateUserConfig": {
+                    "description": "The configuration for <code>AdminCreateUser</code> requests.",
+                    "properties": {
+                        "AllowAdminCreateUserOnly": {
+                            "description": "Set to <code>True</code> if only the administrator is allowed to create user profiles. Set to <code>False</code> if users can sign themselves up via an app.",
+                            "type": "boolean"
+                        },
+                        "InviteMessageTemplate": {
+                            "description": "<p>The message template to be used for the welcome message to new users.</p> <p>See also <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization\">Customizing User Invitation Messages</a>.</p>",
+                            "properties": {
+                                "EmailMessage": {
+                                    "description": "The message template for email messages.",
+                                    "maxLength": 20000,
+                                    "minLength": 6,
+                                    "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*\\{####\\}[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*",
+                                    "type": "string"
+                                },
+                                "EmailSubject": {
+                                    "description": "The subject line for email messages.",
+                                    "maxLength": 140,
+                                    "minLength": 1,
+                                    "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
+                                    "type": "string"
+                                },
+                                "SMSMessage": {
+                                    "description": "The message template for SMS messages.",
+                                    "maxLength": 140,
+                                    "minLength": 6,
+                                    "pattern": ".*\\{####\\}.*",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "UnusedAccountValidityDays": {
+                            "description": "The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call <code>AdminCreateUser</code> again, specifying <code>\"RESEND\"</code> for the <code>MessageAction</code> parameter. The default value for this parameter is 7.",
+                            "maximum": 365,
+                            "minimum": 0,
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                },
+                "AutoVerifiedAttributes": {
+                    "description": "The attributes that are automatically verified when the Amazon Cognito service makes a request to update user pools.",
+                    "items": {
+                        "enum": [
+                            "phone_number",
+                            "email"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "DeviceConfiguration": {
+                    "description": "Device configuration.",
+                    "properties": {
+                        "ChallengeRequiredOnNewDevice": {
+                            "description": "Indicates whether a challenge is required on a new device. Only applicable to a new device.",
+                            "type": "boolean"
+                        },
+                        "DeviceOnlyRememberedOnUserPrompt": {
+                            "description": "If true, a device is only remembered on user prompt.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "EmailConfiguration": {
+                    "description": "Email configuration.",
+                    "properties": {
+                        "ReplyToEmailAddress": {
+                            "description": "The destination to which the receiver of the email should reply to.",
+                            "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+@[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+                            "type": "string"
+                        },
+                        "SourceArn": {
+                            "description": "The Amazon Resource Name (ARN) of the email source.",
+                            "maxLength": 2048,
+                            "minLength": 20,
+                            "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "EmailVerificationMessage": {
+                    "description": "The contents of the email verification message.",
+                    "maxLength": 20000,
+                    "minLength": 6,
+                    "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*\\{####\\}[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*",
+                    "type": "string"
+                },
+                "EmailVerificationSubject": {
+                    "description": "The subject of the email verification message.",
+                    "maxLength": 140,
+                    "minLength": 1,
+                    "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
+                    "type": "string"
+                },
+                "LambdaConfig": {
+                    "description": "The AWS Lambda configuration information from the request to update the user pool.",
+                    "properties": {
+                        "CreateAuthChallenge": {
+                            "description": "Creates an authentication challenge.",
+                            "maxLength": 2048,
+                            "minLength": 20,
+                            "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                            "type": "string"
+                        },
+                        "CustomMessage": {
+                            "description": "A custom Message AWS Lambda trigger.",
+                            "maxLength": 2048,
+                            "minLength": 20,
+                            "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                            "type": "string"
+                        },
+                        "DefineAuthChallenge": {
+                            "description": "Defines the authentication challenge.",
+                            "maxLength": 2048,
+                            "minLength": 20,
+                            "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                            "type": "string"
+                        },
+                        "PostAuthentication": {
+                            "description": "A post-authentication AWS Lambda trigger.",
+                            "maxLength": 2048,
+                            "minLength": 20,
+                            "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                            "type": "string"
+                        },
+                        "PostConfirmation": {
+                            "description": "A post-confirmation AWS Lambda trigger.",
+                            "maxLength": 2048,
+                            "minLength": 20,
+                            "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                            "type": "string"
+                        },
+                        "PreAuthentication": {
+                            "description": "A pre-authentication AWS Lambda trigger.",
+                            "maxLength": 2048,
+                            "minLength": 20,
+                            "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                            "type": "string"
+                        },
+                        "PreSignUp": {
+                            "description": "A pre-registration AWS Lambda trigger.",
+                            "maxLength": 2048,
+                            "minLength": 20,
+                            "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                            "type": "string"
+                        },
+                        "PreTokenGeneration": {
+                            "description": "A Lambda trigger that is invoked before token generation.",
+                            "maxLength": 2048,
+                            "minLength": 20,
+                            "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                            "type": "string"
+                        },
+                        "UserMigration": {
+                            "description": "The user migration Lambda config type.",
+                            "maxLength": 2048,
+                            "minLength": 20,
+                            "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                            "type": "string"
+                        },
+                        "VerifyAuthChallengeResponse": {
+                            "description": "Verifies the authentication challenge response.",
+                            "maxLength": 2048,
+                            "minLength": 20,
+                            "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "MfaConfiguration": {
+                    "description": "<p>Can be one of the following values:</p> <ul> <li> <p> <code>OFF</code> - MFA tokens are not required and cannot be specified during user registration.</p> </li> <li> <p> <code>ON</code> - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.</p> </li> <li> <p> <code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</p> </li> </ul>",
+                    "enum": [
+                        "OFF",
+                        "ON",
+                        "OPTIONAL"
+                    ],
+                    "type": "string"
+                },
+                "Policies": {
+                    "description": "A container with the policies you wish to update in a user pool.",
+                    "properties": {
+                        "PasswordPolicy": {
+                            "description": "The password policy.",
+                            "properties": {
+                                "MinimumLength": {
+                                    "description": "The minimum length of the password policy that you have set. Cannot be less than 6.",
+                                    "maximum": 99,
+                                    "minimum": 6,
+                                    "type": "integer"
+                                },
+                                "RequireLowercase": {
+                                    "description": "In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.",
+                                    "type": "boolean"
+                                },
+                                "RequireNumbers": {
+                                    "description": "In the password policy that you have set, refers to whether you have required users to use at least one number in their password.",
+                                    "type": "boolean"
+                                },
+                                "RequireSymbols": {
+                                    "description": "In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.",
+                                    "type": "boolean"
+                                },
+                                "RequireUppercase": {
+                                    "description": "In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.",
+                                    "type": "boolean"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                },
+                "SmsAuthenticationMessage": {
+                    "description": "The contents of the SMS authentication message.",
+                    "maxLength": 140,
+                    "minLength": 6,
+                    "pattern": ".*\\{####\\}.*",
+                    "type": "string"
+                },
+                "SmsConfiguration": {
+                    "description": "SMS configuration.",
+                    "properties": {
+                        "ExternalId": {
+                            "description": "The external ID.",
+                            "type": "string"
+                        },
+                        "SnsCallerArn": {
+                            "description": "The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller.",
+                            "maxLength": 2048,
+                            "minLength": 20,
+                            "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "SnsCallerArn"
+                    ],
+                    "type": "object"
+                },
+                "SmsVerificationMessage": {
+                    "description": "A container with information about the SMS verification message.",
+                    "maxLength": 140,
+                    "minLength": 6,
+                    "pattern": ".*\\{####\\}.*",
+                    "type": "string"
+                },
+                "UserPoolAddOns": {
+                    "description": "Used to enable advanced security risk detection. Set the key <code>AdvancedSecurityMode</code> to the value \"AUDIT\".",
+                    "properties": {
+                        "AdvancedSecurityMode": {
+                            "description": "The advanced security mode.",
+                            "enum": [
+                                "OFF",
+                                "AUDIT",
+                                "ENFORCED"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "AdvancedSecurityMode"
+                    ],
+                    "type": "object"
+                },
+                "UserPoolId": {
+                    "description": "The user pool ID for the user pool you want to update.",
+                    "maxLength": 55,
+                    "minLength": 1,
+                    "pattern": "[\\w-]+_[0-9a-zA-Z]+",
+                    "type": "string"
+                },
+                "UserPoolTags": {
+                    "description": "The cost allocation tags for the user pool. For more information, see <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html\">Adding Cost Allocation Tags to Your User Pool</a> ",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "VerificationMessageTemplate": {
+                    "description": "The template for verification messages.",
+                    "properties": {
+                        "DefaultEmailOption": {
+                            "description": "The default email option.",
+                            "enum": [
+                                "CONFIRM_WITH_LINK",
+                                "CONFIRM_WITH_CODE"
+                            ],
+                            "type": "string"
+                        },
+                        "EmailMessage": {
+                            "description": "The email message template.",
+                            "maxLength": 20000,
+                            "minLength": 6,
+                            "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*\\{####\\}[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*",
+                            "type": "string"
+                        },
+                        "EmailMessageByLink": {
+                            "description": "The email message template for sending a confirmation link to the user.",
+                            "maxLength": 20000,
+                            "minLength": 6,
+                            "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*\\{##[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*##\\}[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*",
+                            "type": "string"
+                        },
+                        "EmailSubject": {
+                            "description": "The subject line for the email message template.",
+                            "maxLength": 140,
+                            "minLength": 1,
+                            "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
+                            "type": "string"
+                        },
+                        "EmailSubjectByLink": {
+                            "description": "The subject line for the email message template for sending a confirmation link to the user.",
+                            "maxLength": 140,
+                            "minLength": 1,
+                            "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
+                            "type": "string"
+                        },
+                        "SmsMessage": {
+                            "description": "The SMS message template.",
+                            "maxLength": 140,
+                            "minLength": 6,
+                            "pattern": ".*\\{####\\}.*",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "UserPoolId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
