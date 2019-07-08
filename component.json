@@ -1,6 +1,6 @@
 {
     "title": "Amazon Cognito Identity Provider",
-    "description": "<p>Using the Amazon Cognito User Pools API, you can create a user pool to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.</p> <p>This API reference provides information about user pools in Amazon Cognito User Pools.</p> <p>For more information, see the Amazon Cognito Documentation.</p>",
+    "description": "Using the Amazon Cognito User Pools API, you can create a user pool to manage\ndirectories and users. You can authenticate a user to obtain tokens related to\nuser identity and access policies.\n\nThis API reference provides information about user pools in Amazon Cognito User\nPools.\n\nFor more information, see the Amazon Cognito Documentation.",
     "docsUrl": "https://aws.amazon.com/cognito-idp/",
     "url": "https://api.apis.guru/v2/specs/amazonaws.com/cognito-idp/2016-04-18/swagger.json",
     "envVars": {},
@@ -20,7 +20,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "hmac": {
+            "auth_hmac": {
                 "label": "Authorization (hmac)",
                 "viewClass": "TextFieldView",
                 "note": "Amazon Signature authorization v4"
@@ -38,7 +38,7 @@
     "actions": {
         "AddCustomAttributes": {
             "main": "./lib/actions/AddCustomAttributes.js",
-            "title": "Adds additional user attributes to the user pool schema.",
+            "title": "AddCustomAttributes",
             "description": "Adds additional user attributes to the user pool schema.",
             "fields": {
                 "verbose": {
@@ -55,8 +55,8 @@
         },
         "AdminAddUserToGroup": {
             "main": "./lib/actions/AdminAddUserToGroup.js",
-            "title": "<p>Adds the specified user to the specified group.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Adds the specified user to the specified group.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminAddUserToGroup",
+            "description": "Adds the specified user to the specified group.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -72,8 +72,8 @@
         },
         "AdminConfirmSignUp": {
             "main": "./lib/actions/AdminConfirmSignUp.js",
-            "title": "<p>Confirms user registration as an admin without using a confirmation code. Works on any user.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Confirms user registration as an admin without using a confirmation code. Works on any user.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminConfirmSignUp",
+            "description": "Confirms user registration as an admin without using a confirmation code. Works\non any user.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -89,8 +89,8 @@
         },
         "AdminCreateUser": {
             "main": "./lib/actions/AdminCreateUser.js",
-            "title": "<p>Creates a new user in the specified user pool.</p> <p>If <code>MessageAction</code> is not set, the default is to send a welcome message via email or phone (SMS).</p> <note> <p>This message is based on a template that you configured in your call to or . This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p> </note> <p>Alternatively, you can call AdminCreateUser with \"SUPPRESS\" for the <code>MessageAction</code> parameter, and Amazon Cognito will not send any email. </p> <p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and change their password.</p> <p>AdminCreateUser requires developer credentials.</p>",
-            "description": "<p>Creates a new user in the specified user pool.</p> <p>If <code>MessageAction</code> is not set, the default is to send a welcome message via email or phone (SMS).</p> <note> <p>This message is based on a template that you configured in your call to or . This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p> </note> <p>Alternatively, you can call AdminCreateUser with \"SUPPRESS\" for the <code>MessageAction</code> parameter, and Amazon Cognito will not send any email. </p> <p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and change their password.</p> <p>AdminCreateUser requires developer credentials.</p>",
+            "title": "AdminCreateUser",
+            "description": "Creates a new user in the specified user pool.\n\nIf MessageAction is not set, the default is to send a welcome message via email\nor phone (SMS).\n\nThis message is based on a template that you configured in your call to or .\nThis template includes your custom sign-up instructions and placeholders for\nuser name and temporary password.\n\nAlternatively, you can call AdminCreateUser with \"SUPPRESS\" for the \nMessageAction parameter, and Amazon Cognito will not send any email. \n\nIn either case, the user will be in the FORCE_CHANGE_PASSWORD state until they\nsign in and change their password.\n\nAdminCreateUser requires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -106,8 +106,8 @@
         },
         "AdminDeleteUser": {
             "main": "./lib/actions/AdminDeleteUser.js",
-            "title": "<p>Deletes a user as an administrator. Works on any user.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Deletes a user as an administrator. Works on any user.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminDeleteUser",
+            "description": "Deletes a user as an administrator. Works on any user.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -123,8 +123,8 @@
         },
         "AdminDeleteUserAttributes": {
             "main": "./lib/actions/AdminDeleteUserAttributes.js",
-            "title": "<p>Deletes the user attributes in a user pool as an administrator. Works on any user.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Deletes the user attributes in a user pool as an administrator. Works on any user.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminDeleteUserAttributes",
+            "description": "Deletes the user attributes in a user pool as an administrator. Works on any\nuser.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -140,8 +140,8 @@
         },
         "AdminDisableProviderForUser": {
             "main": "./lib/actions/AdminDisableProviderForUser.js",
-            "title": "<p>Disables the user from signing in with the specified external (SAML or social) identity provider. If the user to disable is a Cognito User Pools native username + password user, they are not permitted to use their password to sign-in. If the user to disable is a linked external IdP user, any link between that user and an existing user is removed. The next time the external user (no longer attached to the previously linked <code>DestinationUser</code>) signs in, they must create a new user account. See .</p> <p>This action is enabled only for admin access and requires developer credentials.</p> <p>The <code>ProviderName</code> must match the value specified when creating an IdP for the pool. </p> <p>To disable a native username + password user, the <code>ProviderName</code> value must be <code>Cognito</code> and the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code>, with the <code>ProviderAttributeValue</code> being the name that is used in the user pool for the user.</p> <p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for social identity providers. The <code>ProviderAttributeValue</code> must always be the exact subject that was used when the user was originally linked as a source user.</p> <p>For de-linking a SAML identity, there are two scenarios. If the linked identity has not yet been used to sign-in, the <code>ProviderAttributeName</code> and <code>ProviderAttributeValue</code> must be the same values that were used for the <code>SourceUser</code> when the identities were originally linked in the call. (If the linking was done with <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>, the same applies here). However, if the user has already signed in, the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code> and <code>ProviderAttributeValue</code> must be the subject of the SAML assertion.</p>",
-            "description": "<p>Disables the user from signing in with the specified external (SAML or social) identity provider. If the user to disable is a Cognito User Pools native username + password user, they are not permitted to use their password to sign-in. If the user to disable is a linked external IdP user, any link between that user and an existing user is removed. The next time the external user (no longer attached to the previously linked <code>DestinationUser</code>) signs in, they must create a new user account. See .</p> <p>This action is enabled only for admin access and requires developer credentials.</p> <p>The <code>ProviderName</code> must match the value specified when creating an IdP for the pool. </p> <p>To disable a native username + password user, the <code>ProviderName</code> value must be <code>Cognito</code> and the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code>, with the <code>ProviderAttributeValue</code> being the name that is used in the user pool for the user.</p> <p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for social identity providers. The <code>ProviderAttributeValue</code> must always be the exact subject that was used when the user was originally linked as a source user.</p> <p>For de-linking a SAML identity, there are two scenarios. If the linked identity has not yet been used to sign-in, the <code>ProviderAttributeName</code> and <code>ProviderAttributeValue</code> must be the same values that were used for the <code>SourceUser</code> when the identities were originally linked in the call. (If the linking was done with <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>, the same applies here). However, if the user has already signed in, the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code> and <code>ProviderAttributeValue</code> must be the subject of the SAML assertion.</p>",
+            "title": "AdminDisableProviderForUser",
+            "description": "Disables the user from signing in with the specified external (SAML or social)\nidentity provider. If the user to disable is a Cognito User Pools native\nusername + password user, they are not permitted to use their password to\nsign-in. If the user to disable is a linked external IdP user, any link between\nthat user and an existing user is removed. The next time the external user (no\nlonger attached to the previously linked DestinationUser) signs in, they must\ncreate a new user account. See .\n\nThis action is enabled only for admin access and requires developer credentials.\n\nThe ProviderName must match the value specified when creating an IdP for the\npool. \n\nTo disable a native username + password user, the ProviderName value must be \nCognito and the ProviderAttributeName must be Cognito_Subject, with the \nProviderAttributeValue being the name that is used in the user pool for the\nuser.\n\nThe ProviderAttributeName must always be Cognito_Subject for social identity\nproviders. The ProviderAttributeValue must always be the exact subject that was\nused when the user was originally linked as a source user.\n\nFor de-linking a SAML identity, there are two scenarios. If the linked identity\nhas not yet been used to sign-in, the ProviderAttributeName and \nProviderAttributeValue must be the same values that were used for the SourceUser \nwhen the identities were originally linked in the call. (If the linking was done\nwith ProviderAttributeName set to Cognito_Subject, the same applies here).\nHowever, if the user has already signed in, the ProviderAttributeName must be \nCognito_Subject and ProviderAttributeValue must be the subject of the SAML\nassertion.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -157,8 +157,8 @@
         },
         "AdminDisableUser": {
             "main": "./lib/actions/AdminDisableUser.js",
-            "title": "<p>Disables the specified user as an administrator. Works on any user.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Disables the specified user as an administrator. Works on any user.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminDisableUser",
+            "description": "Disables the specified user as an administrator. Works on any user.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -174,8 +174,8 @@
         },
         "AdminEnableUser": {
             "main": "./lib/actions/AdminEnableUser.js",
-            "title": "<p>Enables the specified user as an administrator. Works on any user.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Enables the specified user as an administrator. Works on any user.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminEnableUser",
+            "description": "Enables the specified user as an administrator. Works on any user.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -191,8 +191,8 @@
         },
         "AdminForgetDevice": {
             "main": "./lib/actions/AdminForgetDevice.js",
-            "title": "<p>Forgets the device, as an administrator.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Forgets the device, as an administrator.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminForgetDevice",
+            "description": "Forgets the device, as an administrator.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -208,8 +208,8 @@
         },
         "AdminGetDevice": {
             "main": "./lib/actions/AdminGetDevice.js",
-            "title": "<p>Gets the device, as an administrator.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Gets the device, as an administrator.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminGetDevice",
+            "description": "Gets the device, as an administrator.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -225,8 +225,8 @@
         },
         "AdminGetUser": {
             "main": "./lib/actions/AdminGetUser.js",
-            "title": "<p>Gets the specified user by user name in a user pool as an administrator. Works on any user.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Gets the specified user by user name in a user pool as an administrator. Works on any user.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminGetUser",
+            "description": "Gets the specified user by user name in a user pool as an administrator. Works\non any user.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -242,8 +242,8 @@
         },
         "AdminInitiateAuth": {
             "main": "./lib/actions/AdminInitiateAuth.js",
-            "title": "<p>Initiates the authentication flow, as an administrator.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Initiates the authentication flow, as an administrator.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminInitiateAuth",
+            "description": "Initiates the authentication flow, as an administrator.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -259,8 +259,8 @@
         },
         "AdminLinkProviderForUser": {
             "main": "./lib/actions/AdminLinkProviderForUser.js",
-            "title": "<p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an identity from an external identity provider (<code>SourceUser</code>) based on a specified attribute name and value from the external identity provider. This allows you to create a link from the existing user account to an external federated user identity that has not yet been used to sign in, so that the federated user identity can be used to sign in as the existing user account. </p> <p> For example, if there is an existing user with a username and password, this API links that user to a federated user identity, so that when the federated user identity is used, the user signs in as the existing user account. </p> <important> <p>Because this API allows a user with an external federated identity to sign in as an existing user in the user pool, it is critical that it only be used with external identity providers and provider attributes that have been trusted by the application owner.</p> </important> <p>See also .</p> <p>This action is enabled only for admin access and requires developer credentials.</p>",
-            "description": "<p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an identity from an external identity provider (<code>SourceUser</code>) based on a specified attribute name and value from the external identity provider. This allows you to create a link from the existing user account to an external federated user identity that has not yet been used to sign in, so that the federated user identity can be used to sign in as the existing user account. </p> <p> For example, if there is an existing user with a username and password, this API links that user to a federated user identity, so that when the federated user identity is used, the user signs in as the existing user account. </p> <important> <p>Because this API allows a user with an external federated identity to sign in as an existing user in the user pool, it is critical that it only be used with external identity providers and provider attributes that have been trusted by the application owner.</p> </important> <p>See also .</p> <p>This action is enabled only for admin access and requires developer credentials.</p>",
+            "title": "AdminLinkProviderForUser",
+            "description": "Links an existing user account in a user pool (DestinationUser) to an identity\nfrom an external identity provider (SourceUser) based on a specified attribute\nname and value from the external identity provider. This allows you to create a\nlink from the existing user account to an external federated user identity that\nhas not yet been used to sign in, so that the federated user identity can be\nused to sign in as the existing user account. \n\n For example, if there is an existing user with a username and password, this\nAPI links that user to a federated user identity, so that when the federated\nuser identity is used, the user signs in as the existing user account. \n\nBecause this API allows a user with an external federated identity to sign in as\nan existing user in the user pool, it is critical that it only be used with\nexternal identity providers and provider attributes that have been trusted by\nthe application owner.\n\nSee also .\n\nThis action is enabled only for admin access and requires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -276,8 +276,8 @@
         },
         "AdminListDevices": {
             "main": "./lib/actions/AdminListDevices.js",
-            "title": "<p>Lists devices, as an administrator.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Lists devices, as an administrator.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminListDevices",
+            "description": "Lists devices, as an administrator.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -293,8 +293,8 @@
         },
         "AdminListGroupsForUser": {
             "main": "./lib/actions/AdminListGroupsForUser.js",
-            "title": "<p>Lists the groups that the user belongs to.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Lists the groups that the user belongs to.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminListGroupsForUser",
+            "description": "Lists the groups that the user belongs to.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -310,7 +310,7 @@
         },
         "AdminListUserAuthEvents": {
             "main": "./lib/actions/AdminListUserAuthEvents.js",
-            "title": "Lists a history of user activity and any risks detected as part of Amazon Cognito advanced security.",
+            "title": "AdminListUserAuthEvents",
             "description": "Lists a history of user activity and any risks detected as part of Amazon Cognito advanced security.",
             "fields": {
                 "verbose": {
@@ -327,8 +327,8 @@
         },
         "AdminRemoveUserFromGroup": {
             "main": "./lib/actions/AdminRemoveUserFromGroup.js",
-            "title": "<p>Removes the specified user from the specified group.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Removes the specified user from the specified group.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminRemoveUserFromGroup",
+            "description": "Removes the specified user from the specified group.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -344,8 +344,8 @@
         },
         "AdminResetUserPassword": {
             "main": "./lib/actions/AdminResetUserPassword.js",
-            "title": "<p>Resets the specified user's password in a user pool as an administrator. Works on any user.</p> <p>When a developer calls this API, the current password is invalidated, so it must be changed. If a user tries to sign in after the API is called, the app will get a PasswordResetRequiredException exception back and should direct the user down the flow to reset the password, which is the same as the forgot password flow. In addition, if the user pool has phone verification selected and a verified phone number exists for the user, or if email verification is selected and a verified email exists for the user, calling this API will also result in sending a message to the end user with the code to change their password.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Resets the specified user's password in a user pool as an administrator. Works on any user.</p> <p>When a developer calls this API, the current password is invalidated, so it must be changed. If a user tries to sign in after the API is called, the app will get a PasswordResetRequiredException exception back and should direct the user down the flow to reset the password, which is the same as the forgot password flow. In addition, if the user pool has phone verification selected and a verified phone number exists for the user, or if email verification is selected and a verified email exists for the user, calling this API will also result in sending a message to the end user with the code to change their password.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminResetUserPassword",
+            "description": "Resets the specified user's password in a user pool as an administrator. Works\non any user.\n\nWhen a developer calls this API, the current password is invalidated, so it must\nbe changed. If a user tries to sign in after the API is called, the app will get\na PasswordResetRequiredException exception back and should direct the user down\nthe flow to reset the password, which is the same as the forgot password flow.\nIn addition, if the user pool has phone verification selected and a verified\nphone number exists for the user, or if email verification is selected and a\nverified email exists for the user, calling this API will also result in sending\na message to the end user with the code to change their password.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -361,8 +361,8 @@
         },
         "AdminRespondToAuthChallenge": {
             "main": "./lib/actions/AdminRespondToAuthChallenge.js",
-            "title": "<p>Responds to an authentication challenge, as an administrator.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Responds to an authentication challenge, as an administrator.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminRespondToAuthChallenge",
+            "description": "Responds to an authentication challenge, as an administrator.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -378,7 +378,7 @@
         },
         "AdminSetUserMFAPreference": {
             "main": "./lib/actions/AdminSetUserMFAPreference.js",
-            "title": "Sets the user's multi-factor authentication (MFA) preference.",
+            "title": "AdminSetUserMFAPreference",
             "description": "Sets the user's multi-factor authentication (MFA) preference.",
             "fields": {
                 "verbose": {
@@ -395,8 +395,8 @@
         },
         "AdminSetUserSettings": {
             "main": "./lib/actions/AdminSetUserSettings.js",
-            "title": "<p>Sets all the user settings for a specified user name. Works on any user.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Sets all the user settings for a specified user name. Works on any user.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminSetUserSettings",
+            "description": "Sets all the user settings for a specified user name. Works on any user.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -412,7 +412,7 @@
         },
         "AdminUpdateAuthEventFeedback": {
             "main": "./lib/actions/AdminUpdateAuthEventFeedback.js",
-            "title": "Provides feedback for an authentication event as to whether it was from a valid user. This feedback is used for improving the risk evaluation decision for the user pool as part of Amazon Cognito advanced security.",
+            "title": "AdminUpdateAuthEventFeedback",
             "description": "Provides feedback for an authentication event as to whether it was from a valid user. This feedback is used for improving the risk evaluation decision for the user pool as part of Amazon Cognito advanced security.",
             "fields": {
                 "verbose": {
@@ -429,8 +429,8 @@
         },
         "AdminUpdateDeviceStatus": {
             "main": "./lib/actions/AdminUpdateDeviceStatus.js",
-            "title": "<p>Updates the device status as an administrator.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Updates the device status as an administrator.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminUpdateDeviceStatus",
+            "description": "Updates the device status as an administrator.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -446,8 +446,8 @@
         },
         "AdminUpdateUserAttributes": {
             "main": "./lib/actions/AdminUpdateUserAttributes.js",
-            "title": "<p>Updates the specified user's attributes, including developer attributes, as an administrator. Works on any user.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p> <p>In addition to updating user attributes, this API can also be used to mark phone and email as verified.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Updates the specified user's attributes, including developer attributes, as an administrator. Works on any user.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p> <p>In addition to updating user attributes, this API can also be used to mark phone and email as verified.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminUpdateUserAttributes",
+            "description": "Updates the specified user's attributes, including developer attributes, as an\nadministrator. Works on any user.\n\nFor custom attributes, you must prepend the custom: prefix to the attribute\nname.\n\nIn addition to updating user attributes, this API can also be used to mark phone\nand email as verified.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -463,8 +463,8 @@
         },
         "AdminUserGlobalSignOut": {
             "main": "./lib/actions/AdminUserGlobalSignOut.js",
-            "title": "<p>Signs out users from all devices, as an administrator.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Signs out users from all devices, as an administrator.</p> <p>Requires developer credentials.</p>",
+            "title": "AdminUserGlobalSignOut",
+            "description": "Signs out users from all devices, as an administrator.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -480,7 +480,7 @@
         },
         "AssociateSoftwareToken": {
             "main": "./lib/actions/AssociateSoftwareToken.js",
-            "title": "Returns a unique generated shared secret key code for the user account. The request takes an access token or a session string, but not both.",
+            "title": "AssociateSoftwareToken",
             "description": "Returns a unique generated shared secret key code for the user account. The request takes an access token or a session string, but not both.",
             "fields": {
                 "verbose": {
@@ -497,7 +497,7 @@
         },
         "ChangePassword": {
             "main": "./lib/actions/ChangePassword.js",
-            "title": "Changes the password for a specified user in a user pool.",
+            "title": "ChangePassword",
             "description": "Changes the password for a specified user in a user pool.",
             "fields": {
                 "verbose": {
@@ -514,7 +514,7 @@
         },
         "ConfirmDevice": {
             "main": "./lib/actions/ConfirmDevice.js",
-            "title": "Confirms tracking of the device. This API call is the call that begins device tracking.",
+            "title": "ConfirmDevice",
             "description": "Confirms tracking of the device. This API call is the call that begins device tracking.",
             "fields": {
                 "verbose": {
@@ -531,7 +531,7 @@
         },
         "ConfirmForgotPassword": {
             "main": "./lib/actions/ConfirmForgotPassword.js",
-            "title": "Allows a user to enter a confirmation code to reset a forgotten password.",
+            "title": "ConfirmForgotPassword",
             "description": "Allows a user to enter a confirmation code to reset a forgotten password.",
             "fields": {
                 "verbose": {
@@ -548,7 +548,7 @@
         },
         "ConfirmSignUp": {
             "main": "./lib/actions/ConfirmSignUp.js",
-            "title": "Confirms registration of a user and handles the existing alias from a previous user.",
+            "title": "ConfirmSignUp",
             "description": "Confirms registration of a user and handles the existing alias from a previous user.",
             "fields": {
                 "verbose": {
@@ -565,8 +565,8 @@
         },
         "CreateGroup": {
             "main": "./lib/actions/CreateGroup.js",
-            "title": "<p>Creates a new group in the specified user pool.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Creates a new group in the specified user pool.</p> <p>Requires developer credentials.</p>",
+            "title": "CreateGroup",
+            "description": "Creates a new group in the specified user pool.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -582,7 +582,7 @@
         },
         "CreateIdentityProvider": {
             "main": "./lib/actions/CreateIdentityProvider.js",
-            "title": "Creates an identity provider for a user pool.",
+            "title": "CreateIdentityProvider",
             "description": "Creates an identity provider for a user pool.",
             "fields": {
                 "verbose": {
@@ -599,7 +599,7 @@
         },
         "CreateResourceServer": {
             "main": "./lib/actions/CreateResourceServer.js",
-            "title": "Creates a new OAuth2.0 resource server and defines custom scopes in it.",
+            "title": "CreateResourceServer",
             "description": "Creates a new OAuth2.0 resource server and defines custom scopes in it.",
             "fields": {
                 "verbose": {
@@ -616,7 +616,7 @@
         },
         "CreateUserImportJob": {
             "main": "./lib/actions/CreateUserImportJob.js",
-            "title": "Creates the user import job.",
+            "title": "CreateUserImportJob",
             "description": "Creates the user import job.",
             "fields": {
                 "verbose": {
@@ -633,7 +633,7 @@
         },
         "CreateUserPool": {
             "main": "./lib/actions/CreateUserPool.js",
-            "title": "Creates a new Amazon Cognito user pool and sets the password policy for the pool.",
+            "title": "CreateUserPool",
             "description": "Creates a new Amazon Cognito user pool and sets the password policy for the pool.",
             "fields": {
                 "verbose": {
@@ -650,7 +650,7 @@
         },
         "CreateUserPoolClient": {
             "main": "./lib/actions/CreateUserPoolClient.js",
-            "title": "Creates the user pool client.",
+            "title": "CreateUserPoolClient",
             "description": "Creates the user pool client.",
             "fields": {
                 "verbose": {
@@ -667,7 +667,7 @@
         },
         "CreateUserPoolDomain": {
             "main": "./lib/actions/CreateUserPoolDomain.js",
-            "title": "Creates a new domain for a user pool.",
+            "title": "CreateUserPoolDomain",
             "description": "Creates a new domain for a user pool.",
             "fields": {
                 "verbose": {
@@ -684,8 +684,8 @@
         },
         "DeleteGroup": {
             "main": "./lib/actions/DeleteGroup.js",
-            "title": "<p>Deletes a group. Currently only groups with no members can be deleted.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Deletes a group. Currently only groups with no members can be deleted.</p> <p>Requires developer credentials.</p>",
+            "title": "DeleteGroup",
+            "description": "Deletes a group. Currently only groups with no members can be deleted.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -701,7 +701,7 @@
         },
         "DeleteIdentityProvider": {
             "main": "./lib/actions/DeleteIdentityProvider.js",
-            "title": "Deletes an identity provider for a user pool.",
+            "title": "DeleteIdentityProvider",
             "description": "Deletes an identity provider for a user pool.",
             "fields": {
                 "verbose": {
@@ -718,7 +718,7 @@
         },
         "DeleteResourceServer": {
             "main": "./lib/actions/DeleteResourceServer.js",
-            "title": "Deletes a resource server.",
+            "title": "DeleteResourceServer",
             "description": "Deletes a resource server.",
             "fields": {
                 "verbose": {
@@ -735,7 +735,7 @@
         },
         "DeleteUser": {
             "main": "./lib/actions/DeleteUser.js",
-            "title": "Allows a user to delete himself or herself.",
+            "title": "DeleteUser",
             "description": "Allows a user to delete himself or herself.",
             "fields": {
                 "verbose": {
@@ -752,7 +752,7 @@
         },
         "DeleteUserAttributes": {
             "main": "./lib/actions/DeleteUserAttributes.js",
-            "title": "Deletes the attributes for a user.",
+            "title": "DeleteUserAttributes",
             "description": "Deletes the attributes for a user.",
             "fields": {
                 "verbose": {
@@ -769,7 +769,7 @@
         },
         "DeleteUserPool": {
             "main": "./lib/actions/DeleteUserPool.js",
-            "title": "Deletes the specified Amazon Cognito user pool.",
+            "title": "DeleteUserPool",
             "description": "Deletes the specified Amazon Cognito user pool.",
             "fields": {
                 "verbose": {
@@ -786,7 +786,7 @@
         },
         "DeleteUserPoolClient": {
             "main": "./lib/actions/DeleteUserPoolClient.js",
-            "title": "Allows the developer to delete the user pool client.",
+            "title": "DeleteUserPoolClient",
             "description": "Allows the developer to delete the user pool client.",
             "fields": {
                 "verbose": {
@@ -803,7 +803,7 @@
         },
         "DeleteUserPoolDomain": {
             "main": "./lib/actions/DeleteUserPoolDomain.js",
-            "title": "Deletes a domain for a user pool.",
+            "title": "DeleteUserPoolDomain",
             "description": "Deletes a domain for a user pool.",
             "fields": {
                 "verbose": {
@@ -820,7 +820,7 @@
         },
         "DescribeIdentityProvider": {
             "main": "./lib/actions/DescribeIdentityProvider.js",
-            "title": "Gets information about a specific identity provider.",
+            "title": "DescribeIdentityProvider",
             "description": "Gets information about a specific identity provider.",
             "fields": {
                 "verbose": {
@@ -837,7 +837,7 @@
         },
         "DescribeResourceServer": {
             "main": "./lib/actions/DescribeResourceServer.js",
-            "title": "Describes a resource server.",
+            "title": "DescribeResourceServer",
             "description": "Describes a resource server.",
             "fields": {
                 "verbose": {
@@ -854,7 +854,7 @@
         },
         "DescribeRiskConfiguration": {
             "main": "./lib/actions/DescribeRiskConfiguration.js",
-            "title": "Describes the risk configuration.",
+            "title": "DescribeRiskConfiguration",
             "description": "Describes the risk configuration.",
             "fields": {
                 "verbose": {
@@ -871,7 +871,7 @@
         },
         "DescribeUserImportJob": {
             "main": "./lib/actions/DescribeUserImportJob.js",
-            "title": "Describes the user import job.",
+            "title": "DescribeUserImportJob",
             "description": "Describes the user import job.",
             "fields": {
                 "verbose": {
@@ -888,7 +888,7 @@
         },
         "DescribeUserPool": {
             "main": "./lib/actions/DescribeUserPool.js",
-            "title": "Returns the configuration information and metadata of the specified user pool.",
+            "title": "DescribeUserPool",
             "description": "Returns the configuration information and metadata of the specified user pool.",
             "fields": {
                 "verbose": {
@@ -905,7 +905,7 @@
         },
         "DescribeUserPoolClient": {
             "main": "./lib/actions/DescribeUserPoolClient.js",
-            "title": "Client method for returning the configuration information and metadata of the specified user pool app client.",
+            "title": "DescribeUserPoolClient",
             "description": "Client method for returning the configuration information and metadata of the specified user pool app client.",
             "fields": {
                 "verbose": {
@@ -922,7 +922,7 @@
         },
         "DescribeUserPoolDomain": {
             "main": "./lib/actions/DescribeUserPoolDomain.js",
-            "title": "Gets information about a domain.",
+            "title": "DescribeUserPoolDomain",
             "description": "Gets information about a domain.",
             "fields": {
                 "verbose": {
@@ -939,7 +939,7 @@
         },
         "ForgetDevice": {
             "main": "./lib/actions/ForgetDevice.js",
-            "title": "Forgets the specified device.",
+            "title": "ForgetDevice",
             "description": "Forgets the specified device.",
             "fields": {
                 "verbose": {
@@ -956,7 +956,7 @@
         },
         "ForgotPassword": {
             "main": "./lib/actions/ForgotPassword.js",
-            "title": "Calling this API causes a message to be sent to the end user with a confirmation code that is required to change the user's password. For the <code>Username</code> parameter, you can use the username or user alias. If a verified phone number exists for the user, the confirmation code is sent to the phone number. Otherwise, if a verified email exists, the confirmation code is sent to the email. If neither a verified phone number nor a verified email exists, <code>InvalidParameterException</code> is thrown. To use the confirmation code for resetting the password, call .",
+            "title": "ForgotPassword",
             "description": "Calling this API causes a message to be sent to the end user with a confirmation code that is required to change the user's password. For the <code>Username</code> parameter, you can use the username or user alias. If a verified phone number exists for the user, the confirmation code is sent to the phone number. Otherwise, if a verified email exists, the confirmation code is sent to the email. If neither a verified phone number nor a verified email exists, <code>InvalidParameterException</code> is thrown. To use the confirmation code for resetting the password, call .",
             "fields": {
                 "verbose": {
@@ -973,7 +973,7 @@
         },
         "GetCSVHeader": {
             "main": "./lib/actions/GetCSVHeader.js",
-            "title": "Gets the header information for the .csv file to be used as input for the user import job.",
+            "title": "GetCSVHeader",
             "description": "Gets the header information for the .csv file to be used as input for the user import job.",
             "fields": {
                 "verbose": {
@@ -990,7 +990,7 @@
         },
         "GetDevice": {
             "main": "./lib/actions/GetDevice.js",
-            "title": "Gets the device.",
+            "title": "GetDevice",
             "description": "Gets the device.",
             "fields": {
                 "verbose": {
@@ -1007,8 +1007,8 @@
         },
         "GetGroup": {
             "main": "./lib/actions/GetGroup.js",
-            "title": "<p>Gets a group.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Gets a group.</p> <p>Requires developer credentials.</p>",
+            "title": "GetGroup",
+            "description": "Gets a group.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1024,7 +1024,7 @@
         },
         "GetIdentityProviderByIdentifier": {
             "main": "./lib/actions/GetIdentityProviderByIdentifier.js",
-            "title": "Gets the specified identity provider.",
+            "title": "GetIdentityProviderByIdentifier",
             "description": "Gets the specified identity provider.",
             "fields": {
                 "verbose": {
@@ -1041,7 +1041,7 @@
         },
         "GetSigningCertificate": {
             "main": "./lib/actions/GetSigningCertificate.js",
-            "title": "This method takes a user pool ID, and returns the signing certificate.",
+            "title": "GetSigningCertificate",
             "description": "This method takes a user pool ID, and returns the signing certificate.",
             "fields": {
                 "verbose": {
@@ -1058,7 +1058,7 @@
         },
         "GetUICustomization": {
             "main": "./lib/actions/GetUICustomization.js",
-            "title": "Gets the UI Customization information for a particular app client's app UI, if there is something set. If nothing is set for the particular client, but there is an existing pool level customization (app <code>clientId</code> will be <code>ALL</code>), then that is returned. If nothing is present, then an empty shape is returned.",
+            "title": "GetUICustomization",
             "description": "Gets the UI Customization information for a particular app client's app UI, if there is something set. If nothing is set for the particular client, but there is an existing pool level customization (app <code>clientId</code> will be <code>ALL</code>), then that is returned. If nothing is present, then an empty shape is returned.",
             "fields": {
                 "verbose": {
@@ -1075,7 +1075,7 @@
         },
         "GetUser": {
             "main": "./lib/actions/GetUser.js",
-            "title": "Gets the user attributes and metadata for a user.",
+            "title": "GetUser",
             "description": "Gets the user attributes and metadata for a user.",
             "fields": {
                 "verbose": {
@@ -1092,7 +1092,7 @@
         },
         "GetUserAttributeVerificationCode": {
             "main": "./lib/actions/GetUserAttributeVerificationCode.js",
-            "title": "Gets the user attribute verification code for the specified attribute name.",
+            "title": "GetUserAttributeVerificationCode",
             "description": "Gets the user attribute verification code for the specified attribute name.",
             "fields": {
                 "verbose": {
@@ -1109,7 +1109,7 @@
         },
         "GetUserPoolMfaConfig": {
             "main": "./lib/actions/GetUserPoolMfaConfig.js",
-            "title": "Gets the user pool multi-factor authentication (MFA) configuration.",
+            "title": "GetUserPoolMfaConfig",
             "description": "Gets the user pool multi-factor authentication (MFA) configuration.",
             "fields": {
                 "verbose": {
@@ -1126,7 +1126,7 @@
         },
         "GlobalSignOut": {
             "main": "./lib/actions/GlobalSignOut.js",
-            "title": "Signs out users from all devices.",
+            "title": "GlobalSignOut",
             "description": "Signs out users from all devices.",
             "fields": {
                 "verbose": {
@@ -1143,7 +1143,7 @@
         },
         "InitiateAuth": {
             "main": "./lib/actions/InitiateAuth.js",
-            "title": "Initiates the authentication flow.",
+            "title": "InitiateAuth",
             "description": "Initiates the authentication flow.",
             "fields": {
                 "verbose": {
@@ -1160,7 +1160,7 @@
         },
         "ListDevices": {
             "main": "./lib/actions/ListDevices.js",
-            "title": "Lists the devices.",
+            "title": "ListDevices",
             "description": "Lists the devices.",
             "fields": {
                 "verbose": {
@@ -1177,8 +1177,8 @@
         },
         "ListGroups": {
             "main": "./lib/actions/ListGroups.js",
-            "title": "<p>Lists the groups associated with a user pool.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Lists the groups associated with a user pool.</p> <p>Requires developer credentials.</p>",
+            "title": "ListGroups",
+            "description": "Lists the groups associated with a user pool.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1194,7 +1194,7 @@
         },
         "ListIdentityProviders": {
             "main": "./lib/actions/ListIdentityProviders.js",
-            "title": "Lists information about all identity providers for a user pool.",
+            "title": "ListIdentityProviders",
             "description": "Lists information about all identity providers for a user pool.",
             "fields": {
                 "verbose": {
@@ -1211,7 +1211,7 @@
         },
         "ListResourceServers": {
             "main": "./lib/actions/ListResourceServers.js",
-            "title": "Lists the resource servers for a user pool.",
+            "title": "ListResourceServers",
             "description": "Lists the resource servers for a user pool.",
             "fields": {
                 "verbose": {
@@ -1228,7 +1228,7 @@
         },
         "ListUserImportJobs": {
             "main": "./lib/actions/ListUserImportJobs.js",
-            "title": "Lists the user import jobs.",
+            "title": "ListUserImportJobs",
             "description": "Lists the user import jobs.",
             "fields": {
                 "verbose": {
@@ -1245,7 +1245,7 @@
         },
         "ListUserPoolClients": {
             "main": "./lib/actions/ListUserPoolClients.js",
-            "title": "Lists the clients that have been created for the specified user pool.",
+            "title": "ListUserPoolClients",
             "description": "Lists the clients that have been created for the specified user pool.",
             "fields": {
                 "verbose": {
@@ -1262,7 +1262,7 @@
         },
         "ListUserPools": {
             "main": "./lib/actions/ListUserPools.js",
-            "title": "Lists the user pools associated with an AWS account.",
+            "title": "ListUserPools",
             "description": "Lists the user pools associated with an AWS account.",
             "fields": {
                 "verbose": {
@@ -1279,7 +1279,7 @@
         },
         "ListUsers": {
             "main": "./lib/actions/ListUsers.js",
-            "title": "Lists the users in the Amazon Cognito user pool.",
+            "title": "ListUsers",
             "description": "Lists the users in the Amazon Cognito user pool.",
             "fields": {
                 "verbose": {
@@ -1296,8 +1296,8 @@
         },
         "ListUsersInGroup": {
             "main": "./lib/actions/ListUsersInGroup.js",
-            "title": "<p>Lists the users in the specified group.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Lists the users in the specified group.</p> <p>Requires developer credentials.</p>",
+            "title": "ListUsersInGroup",
+            "description": "Lists the users in the specified group.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1313,7 +1313,7 @@
         },
         "ResendConfirmationCode": {
             "main": "./lib/actions/ResendConfirmationCode.js",
-            "title": "Resends the confirmation (for confirmation of registration) to a specific user in the user pool.",
+            "title": "ResendConfirmationCode",
             "description": "Resends the confirmation (for confirmation of registration) to a specific user in the user pool.",
             "fields": {
                 "verbose": {
@@ -1330,7 +1330,7 @@
         },
         "RespondToAuthChallenge": {
             "main": "./lib/actions/RespondToAuthChallenge.js",
-            "title": "Responds to the authentication challenge.",
+            "title": "RespondToAuthChallenge",
             "description": "Responds to the authentication challenge.",
             "fields": {
                 "verbose": {
@@ -1347,8 +1347,8 @@
         },
         "SetRiskConfiguration": {
             "main": "./lib/actions/SetRiskConfiguration.js",
-            "title": "<p>Configures actions on detected risks. To delete the risk configuration for <code>UserPoolId</code> or <code>ClientId</code>, pass null values for all four configuration types.</p> <p>To enable Amazon Cognito advanced security features, update the user pool to include the <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.</p> <p>See .</p>",
-            "description": "<p>Configures actions on detected risks. To delete the risk configuration for <code>UserPoolId</code> or <code>ClientId</code>, pass null values for all four configuration types.</p> <p>To enable Amazon Cognito advanced security features, update the user pool to include the <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.</p> <p>See .</p>",
+            "title": "SetRiskConfiguration",
+            "description": "Configures actions on detected risks. To delete the risk configuration for \nUserPoolId or ClientId, pass null values for all four configuration types.\n\nTo enable Amazon Cognito advanced security features, update the user pool to\ninclude the UserPoolAddOns keyAdvancedSecurityMode.\n\nSee .",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1364,8 +1364,8 @@
         },
         "SetUICustomization": {
             "main": "./lib/actions/SetUICustomization.js",
-            "title": "<p>Sets the UI customization information for a user pool's built-in app UI.</p> <p>You can specify app UI customization settings for a single client (with a specific <code>clientId</code>) or for all clients (by setting the <code>clientId</code> to <code>ALL</code>). If you specify <code>ALL</code>, the default configuration will be used for every client that has no UI customization set previously. If you specify UI customization settings for a particular client, it will no longer fall back to the <code>ALL</code> configuration. </p> <note> <p>To use this API, your user pool must have a domain associated with it. Otherwise, there is no place to host the app's pages, and the service will throw an error.</p> </note>",
-            "description": "<p>Sets the UI customization information for a user pool's built-in app UI.</p> <p>You can specify app UI customization settings for a single client (with a specific <code>clientId</code>) or for all clients (by setting the <code>clientId</code> to <code>ALL</code>). If you specify <code>ALL</code>, the default configuration will be used for every client that has no UI customization set previously. If you specify UI customization settings for a particular client, it will no longer fall back to the <code>ALL</code> configuration. </p> <note> <p>To use this API, your user pool must have a domain associated with it. Otherwise, there is no place to host the app's pages, and the service will throw an error.</p> </note>",
+            "title": "SetUICustomization",
+            "description": "Sets the UI customization information for a user pool's built-in app UI.\n\nYou can specify app UI customization settings for a single client (with a\nspecific clientId) or for all clients (by setting the clientId to ALL). If you\nspecify ALL, the default configuration will be used for every client that has no\nUI customization set previously. If you specify UI customization settings for a\nparticular client, it will no longer fall back to the ALL configuration. \n\nTo use this API, your user pool must have a domain associated with it.\nOtherwise, there is no place to host the app's pages, and the service will throw\nan error.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1381,7 +1381,7 @@
         },
         "SetUserMFAPreference": {
             "main": "./lib/actions/SetUserMFAPreference.js",
-            "title": "Set the user's multi-factor authentication (MFA) method preference.",
+            "title": "SetUserMFAPreference",
             "description": "Set the user's multi-factor authentication (MFA) method preference.",
             "fields": {
                 "verbose": {
@@ -1398,7 +1398,7 @@
         },
         "SetUserPoolMfaConfig": {
             "main": "./lib/actions/SetUserPoolMfaConfig.js",
-            "title": "Set the user pool MFA configuration.",
+            "title": "SetUserPoolMfaConfig",
             "description": "Set the user pool MFA configuration.",
             "fields": {
                 "verbose": {
@@ -1415,7 +1415,7 @@
         },
         "SetUserSettings": {
             "main": "./lib/actions/SetUserSettings.js",
-            "title": "Sets the user settings like multi-factor authentication (MFA). If MFA is to be removed for a particular attribute pass the attribute with code delivery as null. If null list is passed, all MFA options are removed.",
+            "title": "SetUserSettings",
             "description": "Sets the user settings like multi-factor authentication (MFA). If MFA is to be removed for a particular attribute pass the attribute with code delivery as null. If null list is passed, all MFA options are removed.",
             "fields": {
                 "verbose": {
@@ -1432,7 +1432,7 @@
         },
         "SignUp": {
             "main": "./lib/actions/SignUp.js",
-            "title": "Registers the user in the specified user pool and creates a user name, password, and user attributes.",
+            "title": "SignUp",
             "description": "Registers the user in the specified user pool and creates a user name, password, and user attributes.",
             "fields": {
                 "verbose": {
@@ -1449,7 +1449,7 @@
         },
         "StartUserImportJob": {
             "main": "./lib/actions/StartUserImportJob.js",
-            "title": "Starts the user import.",
+            "title": "StartUserImportJob",
             "description": "Starts the user import.",
             "fields": {
                 "verbose": {
@@ -1466,7 +1466,7 @@
         },
         "StopUserImportJob": {
             "main": "./lib/actions/StopUserImportJob.js",
-            "title": "Stops the user import job.",
+            "title": "StopUserImportJob",
             "description": "Stops the user import job.",
             "fields": {
                 "verbose": {
@@ -1483,7 +1483,7 @@
         },
         "UpdateAuthEventFeedback": {
             "main": "./lib/actions/UpdateAuthEventFeedback.js",
-            "title": "Provides the feedback for an authentication event whether it was from a valid user or not. This feedback is used for improving the risk evaluation decision for the user pool as part of Amazon Cognito advanced security.",
+            "title": "UpdateAuthEventFeedback",
             "description": "Provides the feedback for an authentication event whether it was from a valid user or not. This feedback is used for improving the risk evaluation decision for the user pool as part of Amazon Cognito advanced security.",
             "fields": {
                 "verbose": {
@@ -1500,7 +1500,7 @@
         },
         "UpdateDeviceStatus": {
             "main": "./lib/actions/UpdateDeviceStatus.js",
-            "title": "Updates the device status.",
+            "title": "UpdateDeviceStatus",
             "description": "Updates the device status.",
             "fields": {
                 "verbose": {
@@ -1517,8 +1517,8 @@
         },
         "UpdateGroup": {
             "main": "./lib/actions/UpdateGroup.js",
-            "title": "<p>Updates the specified group with the specified attributes.</p> <p>Requires developer credentials.</p>",
-            "description": "<p>Updates the specified group with the specified attributes.</p> <p>Requires developer credentials.</p>",
+            "title": "UpdateGroup",
+            "description": "Updates the specified group with the specified attributes.\n\nRequires developer credentials.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1534,7 +1534,7 @@
         },
         "UpdateIdentityProvider": {
             "main": "./lib/actions/UpdateIdentityProvider.js",
-            "title": "Updates identity provider information for a user pool.",
+            "title": "UpdateIdentityProvider",
             "description": "Updates identity provider information for a user pool.",
             "fields": {
                 "verbose": {
@@ -1551,7 +1551,7 @@
         },
         "UpdateResourceServer": {
             "main": "./lib/actions/UpdateResourceServer.js",
-            "title": "Updates the name and scopes of resource server. All other fields are read-only.",
+            "title": "UpdateResourceServer",
             "description": "Updates the name and scopes of resource server. All other fields are read-only.",
             "fields": {
                 "verbose": {
@@ -1568,7 +1568,7 @@
         },
         "UpdateUserAttributes": {
             "main": "./lib/actions/UpdateUserAttributes.js",
-            "title": "Allows a user to update a specific attribute (one at a time).",
+            "title": "UpdateUserAttributes",
             "description": "Allows a user to update a specific attribute (one at a time).",
             "fields": {
                 "verbose": {
@@ -1585,7 +1585,7 @@
         },
         "UpdateUserPool": {
             "main": "./lib/actions/UpdateUserPool.js",
-            "title": "Updates the specified user pool with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool settings with .",
+            "title": "UpdateUserPool",
             "description": "Updates the specified user pool with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool settings with .",
             "fields": {
                 "verbose": {
@@ -1602,7 +1602,7 @@
         },
         "UpdateUserPoolClient": {
             "main": "./lib/actions/UpdateUserPoolClient.js",
-            "title": "Updates the specified user pool app client with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool app client settings with .",
+            "title": "UpdateUserPoolClient",
             "description": "Updates the specified user pool app client with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool app client settings with .",
             "fields": {
                 "verbose": {
@@ -1619,8 +1619,8 @@
         },
         "UpdateUserPoolDomain": {
             "main": "./lib/actions/UpdateUserPoolDomain.js",
-            "title": "<p>Updates the Secure Sockets Layer (SSL) certificate for the custom domain for your user pool.</p> <p>You can use this operation to provide the Amazon Resource Name (ARN) of a new certificate to Amazon Cognito. You cannot use it to change the domain for a user pool.</p> <p>A custom domain is used to host the Amazon Cognito hosted UI, which provides sign-up and sign-in pages for your application. When you set up a custom domain, you provide a certificate that you manage with AWS Certificate Manager (ACM). When necessary, you can use this operation to change the certificate that you applied to your custom domain.</p> <p>Usually, this is unnecessary following routine certificate renewal with ACM. When you renew your existing certificate in ACM, the ARN for your certificate remains the same, and your custom domain uses the new certificate automatically.</p> <p>However, if you replace your existing certificate with a new one, ACM gives the new certificate a new ARN. To apply the new certificate to your custom domain, you must provide this ARN to Amazon Cognito.</p> <p>When you add your new certificate in ACM, you must choose US East (N. Virginia) as the AWS Region.</p> <p>After you submit your request, Amazon Cognito requires up to 1 hour to distribute your new certificate to your custom domain.</p> <p>For more information about adding a custom domain to your user pool, see <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html\">Using Your Own Domain for the Hosted UI</a>.</p>",
-            "description": "<p>Updates the Secure Sockets Layer (SSL) certificate for the custom domain for your user pool.</p> <p>You can use this operation to provide the Amazon Resource Name (ARN) of a new certificate to Amazon Cognito. You cannot use it to change the domain for a user pool.</p> <p>A custom domain is used to host the Amazon Cognito hosted UI, which provides sign-up and sign-in pages for your application. When you set up a custom domain, you provide a certificate that you manage with AWS Certificate Manager (ACM). When necessary, you can use this operation to change the certificate that you applied to your custom domain.</p> <p>Usually, this is unnecessary following routine certificate renewal with ACM. When you renew your existing certificate in ACM, the ARN for your certificate remains the same, and your custom domain uses the new certificate automatically.</p> <p>However, if you replace your existing certificate with a new one, ACM gives the new certificate a new ARN. To apply the new certificate to your custom domain, you must provide this ARN to Amazon Cognito.</p> <p>When you add your new certificate in ACM, you must choose US East (N. Virginia) as the AWS Region.</p> <p>After you submit your request, Amazon Cognito requires up to 1 hour to distribute your new certificate to your custom domain.</p> <p>For more information about adding a custom domain to your user pool, see <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html\">Using Your Own Domain for the Hosted UI</a>.</p>",
+            "title": "UpdateUserPoolDomain",
+            "description": "Updates the Secure Sockets Layer (SSL) certificate for the custom domain for\nyour user pool.\n\nYou can use this operation to provide the Amazon Resource Name (ARN) of a new\ncertificate to Amazon Cognito. You cannot use it to change the domain for a user\npool.\n\nA custom domain is used to host the Amazon Cognito hosted UI, which provides\nsign-up and sign-in pages for your application. When you set up a custom domain,\nyou provide a certificate that you manage with AWS Certificate Manager (ACM).\nWhen necessary, you can use this operation to change the certificate that you\napplied to your custom domain.\n\nUsually, this is unnecessary following routine certificate renewal with ACM.\nWhen you renew your existing certificate in ACM, the ARN for your certificate\nremains the same, and your custom domain uses the new certificate automatically.\n\nHowever, if you replace your existing certificate with a new one, ACM gives the\nnew certificate a new ARN. To apply the new certificate to your custom domain,\nyou must provide this ARN to Amazon Cognito.\n\nWhen you add your new certificate in ACM, you must choose US East (N. Virginia)\nas the AWS Region.\n\nAfter you submit your request, Amazon Cognito requires up to 1 hour to\ndistribute your new certificate to your custom domain.\n\nFor more information about adding a custom domain to your user pool, see Using\nYour Own Domain for the Hosted UI\n[http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html]\n.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1636,7 +1636,7 @@
         },
         "VerifySoftwareToken": {
             "main": "./lib/actions/VerifySoftwareToken.js",
-            "title": "Use this API to register a user's entered TOTP code and mark the user's software token MFA status as \"verified\" if successful. The request takes an access token or a session string, but not both.",
+            "title": "VerifySoftwareToken",
             "description": "Use this API to register a user's entered TOTP code and mark the user's software token MFA status as \"verified\" if successful. The request takes an access token or a session string, but not both.",
             "fields": {
                 "verbose": {
@@ -1653,7 +1653,7 @@
         },
         "VerifyUserAttribute": {
             "main": "./lib/actions/VerifyUserAttribute.js",
-            "title": "Verifies the specified user attributes in the user pool.",
+            "title": "VerifyUserAttribute",
             "description": "Verifies the specified user attributes in the user pool.",
             "fields": {
                 "verbose": {
